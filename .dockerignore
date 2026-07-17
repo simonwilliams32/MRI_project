@@ -1,0 +1,6 @@
+raw_data/
+notebooks/
+.git/
+__pycache__/
+*.ipynb
+.DS_Store
