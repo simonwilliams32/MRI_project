@@ -28,6 +28,7 @@ data/
 
 # Saved models
 models/
+saved_models/
 *.joblib
 *.h5
 
