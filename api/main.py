@@ -45,5 +45,7 @@ Used this for testing http://127.0.0.1:8000/docs
 
 """I then set up a .dockerignore file so it doesnt upload the data; made a requirements.txt file;
 and created a dockerfile with the basics. Then built the docker docker build -t mri-api ; then ran it docker run -p 8080:8000 mri-api
-then opened it http://127.0.0.1:8080/docs 
+then opened it http://127.0.0.1:8080/docs
+
+API then pushed to google cloud, available at https://mri-api-677473747782.europe-west2.run.app 
 """
