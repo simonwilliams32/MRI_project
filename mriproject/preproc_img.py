@@ -26,11 +26,10 @@ def preprocess_image(img):
     # Add batch size (1)
     arr = np.expand_dims(arr, axis=0)
     arr = arr[0:1,:,:,0:1]
-    print(arr.shape)
 
     return arr
 
 
 def get_model():
-    binary_model = keras.saving.load_model("saved_models/binary_model2.keras", safe_mode=False)
+    binary_model = keras.saving.load_model("saved_models/binary_model2.keras")#, safe_mode=False)
     return binary_model
