@@ -10,8 +10,8 @@ from tensorflow.keras.applications import efficientnet
 IMG_SIZE = (224, 224)
 ALLOWED_CONTENT_TYPES = {"image/png", "image/jpeg", "image/jpg"}
 
-MAIN_DIR = "/home/onuro/code/simonwilliams32/MRI_project/"
-MODELS_DIR = os.path.join(MAIN_DIR, "models")
+MAIN_DIR = "."
+MODELS_DIR = os.path.join(MAIN_DIR, "saved_models")
 BINARY_MODEL_PATH = os.path.join(MODELS_DIR, "brain_tumor_model_binary_transferlearning.keras")
 MULTI_MODEL_PATH = os.path.join(MODELS_DIR, "brain_tumor_model_4class_transferlearning.keras")
 
