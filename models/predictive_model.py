@@ -56,6 +56,22 @@ print(f"Data Shape: {data.shape}")
 print(f"X Shape: {X.shape}")
 print(f"y Shape: {y.shape}")
 
+plotting_cols = [
+    "BMI",
+    "Scan 1: Volume",
+    "linear_regression_growth_rate_cm3",
+    "charlson_comorbidity_index",
+    "age_at_diagnosis",
+    "Sex",
+    "tumour_laterality",
+    "Management",
+]
+
+#Data for plotting
+plotting_data = data[plotting_cols].copy()
+plotting_data.to_csv("saved_models/synthetic_management_reference.csv", index=False)
+print("Synthetic reference dataset saved successfully")
+
 #preprocessor_test = preprocess()
 #X_transform_test = preprocessor_test.fit_transform(X)
 #print(f"shape of test: {X_transform_test.shape}")

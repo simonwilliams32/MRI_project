@@ -1,0 +1,6 @@
+
+Imaging API: http://127.0.0.1:8001/docs
+Management local host API: http://127.0.0.1:8000/docs
+
+Imaging Docker/GoogleCloud API: https://mri-imaging-api-677473747782.europe-west2.run.app
+Management Docker/GoogleCloud API: https://mri-api-677473747782.europe-west2.run.app

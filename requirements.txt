@@ -5,3 +5,6 @@ pandas
 scikit-learn
 xgboost
 python-multipart
+pillow
+numpy
+tensorflow

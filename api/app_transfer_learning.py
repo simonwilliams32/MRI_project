@@ -3,6 +3,7 @@ import os
 import numpy as np
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from PIL import Image
+from pathlib import Path
 import tensorflow as tf
 from tensorflow.keras.applications import efficientnet
 
@@ -10,12 +11,12 @@ from tensorflow.keras.applications import efficientnet
 IMG_SIZE = (224, 224)
 ALLOWED_CONTENT_TYPES = {"image/png", "image/jpeg", "image/jpg"}
 
-MAIN_DIR = "."
+MAIN_DIR = Path(__file__).resolve().parent.parent
 MODELS_DIR = os.path.join(MAIN_DIR, "saved_models")
 BINARY_MODEL_PATH = os.path.join(MODELS_DIR, "brain_tumor_model_binary_transferlearning.keras")
 MULTI_MODEL_PATH = os.path.join(MODELS_DIR, "brain_tumor_model_4class_transferlearning.keras")
 
-BINARY_CLASS_NAMES = ["healthy", "cancer"]
+BINARY_CLASS_NAMES = ["healthy", "tumour detected"]
 MULTI_CLASS_NAMES = ["glioma", "meningioma", "notumor", "pituitary"]
 
 
@@ -56,11 +57,11 @@ async def predict_binary(file: UploadFile = File(...)):
     x = preprocess_image(image_bytes)
 
     prob_cancer = float(binary_model.predict(x, verbose=0)[0][0])
-    predicted_class = "cancer" if prob_cancer > 0.5 else "healthy"
+    predicted_class = "Tumour detected" if prob_cancer > 0.5 else "healthy"
 
     return {
         "predicted_class": predicted_class,
-        "probability_cancer": round(prob_cancer, 4),
+        "probability_tumour": round(prob_cancer, 4),
         "probability_healthy": round(1 - prob_cancer, 4),
     }
 
@@ -81,3 +82,9 @@ async def predict_four_class(file: UploadFile = File(...)):
             name: round(float(p), 4) for name, p in zip(MULTI_CLASS_NAMES, preds)
         },
     }
+
+
+'''➜  MRI_project git:(main) ✗ uvicorn api.app_transfer_learning:app --reload --port 8001                                                                          [🐍 MRI_project]
+INFO:     Will watch for changes in these directories: ['/Users/simonwilliams/code/simonwilliams32/MRI_project']
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+INFO:     Started reloader process [4437] using StatReload'''

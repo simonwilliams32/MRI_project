@@ -2,5 +2,11 @@ raw_data/
 notebooks/
 .git/
 __pycache__/
+*.pyc
 *.ipynb
 .DS_Store
+.env
+.envrc
+
+
+
