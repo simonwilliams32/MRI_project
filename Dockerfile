@@ -12,4 +12,4 @@ RUN pip install --upgrade pip && \
 COPY api ./api
 COPY saved_models ./saved_models
 
-CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["sh", "-c", "uvicorn api.app_transfer_learning:app --host 0.0.0.0 --port ${PORT:-8000}"]

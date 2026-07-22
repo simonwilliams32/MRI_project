@@ -1,10 +1,12 @@
 fastapi
 uvicorn
 joblib
+matplotlib
 pandas
 scikit-learn
 xgboost
 python-multipart
+opencv-python-headless
 pillow
 numpy
 tensorflow
